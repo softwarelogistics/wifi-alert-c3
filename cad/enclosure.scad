@@ -133,7 +133,7 @@ module top(){
                     
             translate([-750/ 39.7,-500 / 39.37,-0.1]) cylinder(5, d=16);
             translate([750 / 39.7,-500 / 39.37, -0.1]) cylinder(5, d=16);
-//            translate([0,-500 / 39.37,-0.1]) cylinder(5, d=16);
+            translate([0,-500 / 39.37,-0.1]) cylinder(5, d=16);
          }
          
          translate([-5,length/2+ 3.24,height-(1.6 + 2)]) cube([9.5,0.75,4.7]);
