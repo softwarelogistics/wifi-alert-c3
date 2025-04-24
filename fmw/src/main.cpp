@@ -4,7 +4,7 @@
 #include "Freenove_WS2812_Lib_for_ESP32.h"
 
 #define BUTTON_BOX_SKU "SA-WIFI-02-FW"
-#define FIRMWARE_VERSION "3.0.2"
+#define FIRMWARE_VERSION "3.1.0"
 #define HARDWARE_REVISION "2.0.0"
 
 //#define SL_MINI
