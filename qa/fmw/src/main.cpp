@@ -17,18 +17,17 @@ bool toggled = false;
 
 Freenove_ESP32_WS2812 strip = Freenove_ESP32_WS2812(LEDS_COUNT, LEDS_PIN, CHANNEL);
 
-
-
 void setup() {
   Serial.begin(115200);  
   strip.begin();
 
   Serial.println("WELCOME - SOFTWARE LOGISTICS");
   Serial.println("ALERT-C3 Button Production QA Tool.");
-  Serial.println("VERSION 1.0.3");
+  Serial.println("VERSION 1.1.0");
   pinMode(BUTTON_PIN1, INPUT_PULLDOWN);
   pinMode(BUTTON_PIN2, INPUT_PULLDOWN);
   pinMode(BUTTON_PIN3, INPUT_PULLDOWN);
+  Serial.println("startupcomplete;");
 }
 
 void loop() {
