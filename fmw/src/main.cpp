@@ -4,8 +4,10 @@
 #include "Freenove_WS2812_Lib_for_ESP32.h"
 
 #define BUTTON_BOX_SKU "SA-WIFI-02-FW"
-#define FIRMWARE_VERSION "3.1.0"
+#define FIRMWARE_VERSION "4.0.2"
 #define HARDWARE_REVISION "2.0.0"
+
+#define BT_ENABLED
 
 //#define SL_MINI
 #ifdef SL_MINI
@@ -17,9 +19,9 @@
 #else
 #define LEDS_COUNT  1
 #define LEDS_PIN	3
-#define BUTTON_PIN1 4
-#define BUTTON_PIN2 1
-#define BUTTON_PIN3 6
+#define BUTTON_PIN1 1
+#define BUTTON_PIN2 6
+#define BUTTON_PIN3 4
 #define CHANNEL		0
 #endif
 
@@ -135,9 +137,9 @@ void setup() {
   BT.begin(btName.c_str(), BUTTON_BOX_SKU);
 
   state.init(BUTTON_BOX_SKU, FIRMWARE_VERSION, HARDWARE_REVISION, "alertbox", 010);
-  state.registerString("alert1msg","hot");
-  state.registerString("alert2msg","warm");
-  state.registerString("alert3msg","cold");
+  state.registerString("alert1msg","red");
+  state.registerString("alert2msg","yellow");
+  state.registerString("alert3msg","green");
 
   pinMode(BUTTON_PIN1, INPUT_PULLDOWN);
   pinMode(BUTTON_PIN2, INPUT_PULLDOWN);

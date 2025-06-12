@@ -23,7 +23,7 @@ void setup() {
 
   Serial.println("WELCOME - SOFTWARE LOGISTICS");
   Serial.println("ALERT-C3 Button Production QA Tool.");
-  Serial.println("VERSION 1.1.0");
+  Serial.println("VERSION 1.1.1");
   pinMode(BUTTON_PIN1, INPUT_PULLDOWN);
   pinMode(BUTTON_PIN2, INPUT_PULLDOWN);
   pinMode(BUTTON_PIN3, INPUT_PULLDOWN);

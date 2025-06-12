@@ -141,6 +141,30 @@ module top(){
      }
  }
  
+ module buttonGuard() {
+     union() {
+         difference() {
+             hull() {
+                translate([-750/39.7,0,0]) cylinder(6,r1=14, r2=12);
+                translate([750/39.7,0,0]) cylinder(6,r1=14, r2=12); 
+             }
+             translate([-750/39.7,0,-0.1])  cylinder(3.1, r=9.8);
+             translate([0,0,-.1]) cylinder(3.1, r=9.8);
+             translate([750/39.7,0,-0.1])  cylinder(3.1, r=9.8);
+
+             translate([-750/39.7,0,2.99])  cylinder(4.1, r1=9.8, r2=7);
+             translate([0,0,2.99]) cylinder(4.1, r1=9.8, r2=7);
+             translate([750/39.7,0,2.99])  cylinder(4.1, r1=9.8, r2=7);
+         }
+         
+         /*color("silver") translate([0,8.5, 6]) linear_extrude(.75) text("GreenLight Alerting", halign="center", size=3);
+
+         color("silver") translate([-750/39.7,-11, 6])linear_extrude(.75)  text("Cold", halign="center", size=3);
+         color("silver") translate([0,-11, 6]) linear_extrude(.75) text("Warm", halign="center", size=3);
+         color("silver") translate([750/39.7,-11, 6]) linear_extrude(0.75) text("Hot", halign="center", size=3);*/
+     }
+ }
+ 
  module bottom() {
      union() {
         difference() {
@@ -202,8 +226,33 @@ module top(){
          
      }     
  }
+ 
+ module shield() {
+     box_width = width + diameter;
+     box_length= length + diameter;
+     wall_thickness = 1.5;
+     shield_width = box_width + (wall_thickness * 2);
+     shield_length = box_length / 2 + wall_thickness + 20;
+     
+     translate([-shield_width / 2, -shield_length, 0])
+     union() {
+        difference() {
+            cube([shield_width, shield_length, 50]);   
+            translate([wall_thickness, wall_thickness + 0.1, wall_thickness + 20]) cube([shield_width - (wall_thickness * 2), shield_length - wall_thickness, 50]);   
+            rotate([0,90,0])  translate([wall_thickness, wall_thickness + 0.1, wall_thickness ]) cylinder(shield_width - wall_thickness * 2,d=20);
+        }
+     }
+}
+
+   buttonGuard();
+
+ 
+ //shield();
  //translate([-pcb_width / 2, pcb_height / 2, 13+base_height -1]) rotate([0,180,180]) pcb();
- top();
+ //top();
+ 
+ 
+ 
  //translate([74,0,0]) bottom();
 
   
